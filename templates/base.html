@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Kabir Shamlani's Portfolio{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </head>
+    <style>
+        #iphoneScreen::-webkit-scrollbar {
+            display: none; /* Hides scrollbars in WebKit browsers */
+        }
+    </style>
+
+    <body class="light-mode">
+        <header id="header">
+            <nav class="navbar" id="navbar">
+                <div class="nav-links">
+                    <a href="{{ url_for('home') }}">Home</a>
+                    <a href="{{ url_for('about') }}">About</a>
+                    <a href="{{ url_for('projects') }}">Projects</a>
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                </div>
+                <div class="mobile-menu">
+                    <button class="menu-btn" style="right: -100px; position:static; top:10px">☰</button>
+                    <div class="mobile-links" style="display: none;">
+                        <a href="{{ url_for('home_mobile') }}">Home</a>
+                        <a href="{{ url_for('about_mobile') }}">About</a>
+                        <a href="{{ url_for('projects_mobile') }}">Projects</a>
+                        <a href="{{ url_for('contact_mobile') }}">Contact</a>
+                    </div>
+                </div>
+                <div class="view-switcher">
+                    <button class="viewbtn" id="laptopViewBtn"
+                        onclick="setView('laptop')">Laptop View</button>
+                    <button class="viewbtn" id="phoneViewBtn"
+                        onclick="setView('phone')">Phone View</button>
+                </div>
+                <div class="theme-switcher">
+                    <label class="switch">
+                        <input type="checkbox" onclick="toggleDarkMode()">
+                        <span class="slider round"></span>
+                    </label>
+                    <div class="dropdown">
+                        <button class="dropbtn">Themes</button>
+                        <div class="dropdown-content">
+                            <a style="color: black;" 
+                                onclick="setTheme('default-theme')">Default</a>
+                            <a style="color: black;"
+                                onclick="setTheme('twitter-theme')">Twitter</a>
+                            <a style="color: black;"
+                                onclick="setTheme('instagram-theme')">Instagram</a>
+                            <a style="color: black;"
+                                onclick="setTheme('facebook-theme')">Facebook</a>
+                            <a style="color: black;"
+                                onclick="setTheme('whatsapp-theme')">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div id="iphoneContainer"
+                style="display:none; position: relative; width: 375px; height: 667px; top:150px; background: url('https://appetize.io/images/devices/iphone14pro_black.svg') no-repeat center center; background-size: contain; overflow: hidden;">
+                <!-- Status Bar -->
+                <div
+                    style="position: absolute; top: 18px; left: 40px; right: 40px; height: 20px; display: flex; justify-content: space-between; align-items:flex-end; color: white; font-size: 12px;z-index: 100;">
+                    <div
+                        style="position:absolute;top:-15px; left:40px; font-size: 14px">
+                        <p> Airtel</p>
+                    </div>
+                    <div></div>
+                    <div>
+                        <i class="fas fa-wifi" aria-hidden="true"></i>
+                        <i class="fas fa-signal" aria-hidden="true" ></i>5G
+                        <i class="fas fa-battery-full fa-lg"
+                            aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <iframe id="iphoneScreen"
+                    style="position: absolute; top: 8px; left: 19px; width: 337px; height: 700px; border-radius: 55px; overflow: auto; scrollbar-width: none; border: none;"
+                    frameborder="0"></iframe>
+
+                <div
+                    style=" width: 20%; height: 0.8%; padding: 10px; z-index:100 ; background-color: black; position:absolute; border-radius: 20px; right: 37%; top:2%;"></div>
+                <div
+                    style=" width: 40%; height: 0.01%; padding:5px;  z-index:100 ; background-color: rgb(255, 255, 255); position:absolute; border-radius: 20px; right: 28%; bottom:2%;"></div>
+            </div>
+
+            <div class="content-container" id="contentContainer">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+        <!-- <footer id="footer">
+            <p>&copy; 2024 Kabir Shamlani</p>
+            <div>
+                <a href="https://linkedin.com/in/kabirshamlani"
+                    target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:kabirshamlani04@gmail.com"><i
+                        class="fas fa-envelope"></i></a>
+            </div>
+        </footer> -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script>
+        AOS.init();
+        applyTheme();
+    </script>
+        <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+        <script>
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+        const links = document.querySelector('.mobile-links');
+        if (links.style.display === 'none') {
+            links.style.display = 'block';
+        } else {
+            links.style.display = 'none';
+        }
+    });
+
+    </script>
+    </body>
+</html>

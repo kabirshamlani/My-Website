@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Projects - Mobile View{% endblock %}
+{% block content %}
+<link rel="stylesheet"
+            href="{{ url_for('static', filename='css/style_mobile.css') }}">
+<section class="projects main-container mui-container">
+    <div class="projects-container">
+        <h1 data-aos="fade-up">Projects</h1>
+        <div class="project mui-card" data-aos="fade-right" data-aos-duration="1000">
+            <h3 class="mui-card-content">Greddit</h3>
+            <img src="{{ url_for('static', filename='images/greddit.png') }}" alt="Greddit" class="mui-card-content">
+            <p class="mui-card-content">A comprehensive social media platform, similar to Reddit, developed using the MERN stack. Utilized Docker for efficient containerization of the code.</p>
+        </div>
+        <div class="project mui-card" data-aos="fade-left" data-aos-duration="1000">
+            <h3 class="mui-card-content">Super-Stockist DBMS</h3>
+            <img src="{{ url_for('static', filename='images/superstockist.png') }}" alt="Super-Stockist DBMS" class="mui-card-content">
+            <p class="mui-card-content">Developed an ERP software system using Python 3 and MySQL. Designed an ER and relational model for efficient data storage, implemented normalization, and built a user-friendly command-line interface.</p>
+        </div>
+        <div class="project mui-card" data-aos="fade-right" data-aos-duration="1000">
+            <h3 class="mui-card-content">Canine Tracking Mobile App</h3>
+            <img src="{{ url_for('static', filename='images/canine_tracking.png') }}" alt="Canine Tracking Mobile App" class="mui-card-content">
+            <p class="mui-card-content">Developed a React Native app for tracking canines, enabling users to find routes without a canine in real-time. Implemented a backend using Express and Node.js, with the entire application dockerized for streamlined deployment and enhanced scalability.</p>
+        </div>
+        <div class="project mui-card" data-aos="fade-left" data-aos-duration="1000">
+            <h3 class="mui-card-content">Clash of Clans</h3>
+            <img src="{{ url_for('static', filename='images/clash_of_clans.png') }}" alt="Clash of Clans" class="mui-card-content">
+            <p class="mui-card-content">A Terminal-based Clash of Clans built using Python3. The game consists of different levels and characters along with buildings and troops. Wrote various unit tests for ensuring proper functioning of functionalities.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

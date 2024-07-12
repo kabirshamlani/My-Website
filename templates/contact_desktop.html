@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Contact - Desktop View{% endblock %}
+{% block content %}
+<section class="contact main-container mui-container">
+    <div class="contact-container">
+        <h1 data-aos="fade-up">Contact Me</h1>
+        <form>
+            <div class="mui-textfield" data-aos="fade-right">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="mui-textfield" data-aos="fade-left">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="mui-textfield" data-aos="fade-up">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="mui-button mui-button--primary" data-aos="fade-right">Send</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

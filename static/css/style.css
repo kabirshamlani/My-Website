@@ -1,0 +1,398 @@
+/* Common styles */
+
+body {
+   font-family: 'Poppins', sans-serif;
+   margin: 0;
+   padding: 0;
+   color: var(--text-color);
+   line-height: 1.6;
+   background-color: var(--background-color);
+   overflow:auto;
+   scrollbar-width: 0px;
+}
+
+.navbar {
+   padding: 1em;
+   text-align: center;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: 1000;
+   box-shadow: 0 -4px 6px -6px #222;
+   display: flex;
+   justify-content:safe ;
+   align-items: center;
+   background-color: var(--navbar-background);
+   color: var(--navbar-text);
+   flex-wrap: wrap;
+   transition: transform 0.3s ease;
+   transform: translateY(100%); /* Hide initially */
+}
+
+
+
+.navbar .nav-links {
+   display: flex;
+   flex-direction: row;
+}
+
+.navbar a {
+   color: var(--navbar-text);
+   margin: 0 1em;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.navbar a:hover {
+   text-decoration: underline;
+}
+
+.theme-switcher, .view-switcher {
+   display: flex;
+   align-items: center;
+}
+
+.viewbtn {
+   background: none;
+   border: none;
+   cursor: pointer;
+   font-size: 1em;
+   color: var(--navbar-text);
+   margin-right: 1em;
+}
+
+.switch {
+   position: relative;
+   display: inline-block;
+   width: 34px;
+   height: 20px;
+   margin-right: 1em;
+}
+
+.switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+
+.slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #ccc;
+   transition: .4s;
+   border-radius: 34px;
+}
+
+.slider:before {
+   position: absolute;
+   content: "";
+   height: 14px;
+   width: 14px;
+   left: 3px;
+   bottom: 3px;
+   background-color: white;
+   transition: .4s;
+   border-radius: 50%;
+}
+
+input:checked + .slider {
+   background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+   transform: translateX(14px);
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropbtn {
+   background: none;
+   border: none;
+   cursor: pointer;
+   font-size: 1em;
+   color: var(--navbar-text);
+}
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 200px;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+   z-index: 1;
+   overflow-y: auto;
+   max-height: 200px;
+}
+
+.dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+}
+
+.dropdown-content a:hover {
+   background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+   display: block;
+}
+
+.content-container {
+   padding-top: 4em;
+   padding-left: 1em;
+   padding-right: 1em;
+}
+
+.fadeIn {
+   animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}
+
+/* Light and Dark mode */
+body.light-mode {
+   --background-color: #ffffff;
+   --text-color: #000000;
+   --navbar-background: #e3e3e3;
+   --navbar-text: #000000;
+   --footer-background: #e3e3e3;
+   --footer-text: #000000;
+}
+
+body.dark-mode {
+   --background-color: #121212;
+   --text-color: #ffffff;
+   --navbar-background: #333333;
+   --navbar-text: #ffffff;
+   --footer-background: #333333;
+   --footer-text: #ffffff;
+}
+
+/* Themes */
+body.default-theme {
+   --background-color: #f4f4f4;
+   --text-color: #333;
+   --navbar-background: #7c7c7c;
+   --navbar-text: #000;
+   --card-bg-color: #333; 
+   --card-text-color: #f4f4f4;
+}
+
+body.twitter-theme {
+   --background-color: #E1E8ED;
+   --text-color: #1DA1F2;
+   --navbar-background: #0082d3;
+   --navbar-text: #fff;
+   --footer-background: #0082d3;
+   --footer-text: #fff;
+   --card-bg-color: #0082d3;
+   --card-text-color: #E1E8ED;
+}
+
+body.instagram-theme {
+   --background-color: linear-gradient(to right, #7d0aff, #b91d73);
+   --text-color: #fff;
+   --navbar-background: #b91d73;
+   --navbar-text: #fff;
+   --footer-background: #b91d73;
+   --footer-text: #fff;
+   --card-bg-color: #b91d73;
+   --card-text-color: #eaeaea;
+}
+
+body.facebook-theme {
+   --background-color: #3b5998;
+   --text-color: #fff;
+   --navbar-background: #3b5998;
+   --navbar-text: #fff;
+   --footer-background: #3b5998;
+   --footer-text: #fff;
+   --card-bg-color: #3b5998;
+   --card-text-color: #D8DADF;
+}
+
+body.whatsapp-theme {
+   --background-color: #DCF8C6;
+   --text-color: #075E54;
+   --navbar-background: #075E54;
+   --navbar-text: #fff;
+   --footer-background: #075E54;
+   --footer-text: #fff;
+   --card-bg-color: #075E54;
+   --card-text-color: #DCF8C6;
+}
+
+footer {
+   background-color: var(--footer-background);
+   color: var(--footer-text);
+   text-align: center;
+   /* padding: 0.5em 0; */
+   height: fit-content;
+   width: 100%;
+   position: fixed;
+   bottom: 0;
+   transition: transform 0.3s ease;
+   transform: translateY(100%);
+}
+
+/* Animations */
+@keyframes typing {
+   from { width: 0 }
+   to { width: 100% }
+}
+
+.typing {
+   overflow: hidden;
+   white-space: nowrap;
+   border-right: .15em solid orange;
+   animation: typing 3.5s steps(40, end), blink-caret .75s step-end;
+}
+
+@keyframes blink-caret {
+   from, to { border-color: transparent }
+   50% { border-color: orange }
+} 
+
+/* AOS Animations */
+[data-aos] {
+   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+[data-aos="fade-up"] {
+   opacity: 0;
+   transform: translate3d(0, 40px, 0);
+}
+
+[data-aos].aos-animate {
+   opacity: 1;
+   transform: translateZ(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   .navbar {
+       flex-direction: column;
+   }
+
+   .viewbtn {
+       display: none;
+   }
+
+   .content-container {
+       padding: 2em 1em;
+   }
+
+   .dropdown-content {
+       max-height: 150px; /* Adjusted for smaller screens */
+   }
+}
+.desktop-view {
+   padding: 20px;
+   font-size: 16px;
+}
+
+.mobile-view {
+   padding: 10px;
+   font-size: 14px;
+}
+
+/* Add responsive design within these classes as needed */
+#iphoneContainer {
+   margin: auto; /* Center the iPhone image horizontally */
+   padding-top: 50px; /* Add some space at the top */
+}
+.dark-mode {
+   background-color: #333;
+   color: white;
+}
+
+.light-mode {
+   background-color: #fff;
+   color: black;
+}
+
+.twitter-theme {
+   background-color: #1DA1F2;
+   color: white;
+}
+
+.instagram-theme {
+   background: linear-gradient(to right, #f953c6, #b91d73);
+   color: white;
+}
+
+/* Ensure other theme styles are correctly defined */
+body.dark-mode {
+   filter: brightness(0.8) sepia(1) hue-rotate(-20deg);
+}
+/* body.twitter-theme {
+   background-image: url('https://source.unsplash.com/featured/?technology');
+} */
+
+/* body.instagram-theme {
+   background-image: url('https://source.unsplash.com/featured/?nature');
+} */
+
+/* Navbar animation like Mac dock */
+.navbar {
+   transition: transform 0.3s ease;
+   transform: translateY(-100%);
+}
+
+/* Show navbar when hovered */
+body:hover .navbar {
+   transform: translateY(0);
+}
+
+.mobile-menu .menu-btn {
+   display: none;
+   font-size: 24px;
+   background: none;
+   border: none;
+   cursor: pointer;
+   color: var(--navbar-text);
+}
+
+.mobile-menu .mobile-links {
+   display: none;
+   flex-direction: column;
+   align-items: center;
+}
+
+@media (max-width: 768px) {
+   .navbar .nav-links {
+       display: none;
+   }
+   
+   .mobile-menu .menu-btn {
+       display: block;
+   }
+}
+
+#iphoneScreen {
+   -ms-overflow-style: none;  /* Internet Explorer 10+ */
+   scrollbar-width: 0px;  /* Firefox */
+   overflow: auto; /* Enable scrolling */
+}
+
+#iphoneScreen::-webkit-scrollbar {
+   display: none;  /* Safari and Chrome */
+}
+#iphoneContainer .fas {
+   margin-right: 5px;
+}
+
+#iphoneContainer > div:first-child {
+   font-family: 'Helvetica Neue', Arial, sans-serif; /* Typical iPhone font */
+}
